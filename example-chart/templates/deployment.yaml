@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      type: example
+  template:
+    metadata:
+      labels:
+        type: example
+    spec:
+      containers:
+        - name: container1
+          image: krushna2232/example
+          ports:
+            - containerPort: 4000
